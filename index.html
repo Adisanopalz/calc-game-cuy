@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Infinite Calculator - Brain Training Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Main Menu Screen -->
+        <div id="mainMenu" class="screen active">
+            <div class="game-card">
+                <h1 class="game-title">
+                    <span class="title-icon">🧠</span>
+                    2D Infinite Calculator
+                    <span class="subtitle">Brain Training Edition</span>
+                </h1>
+                
+                <div class="menu-section">
+                    <h2>Mode Permainan</h2>
+                    <div class="button-grid">
+                        <button class="mode-btn" data-mode="difficulty">
+                            <span class="btn-icon">⚡</span>
+                            <span class="btn-text">Difficulty Mode</span>
+                        </button>
+                        <button class="mode-btn" data-mode="education">
+                            <span class="btn-icon">🎓</span>
+                            <span class="btn-text">Education Mode</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="leaderboard-preview">
+                    <h3>🏆 Top 5 Highscores</h3>
+                    <div id="leaderboardList" class="leaderboard-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Difficulty Selection -->
+        <div id="difficultyMenu" class="screen">
+            <div class="game-card">
+                <button class="back-btn" data-back="main">← Kembali</button>
+                <h2>Pilih Tingkat Kesulitan</h2>
+                
+                <div class="difficulty-grid">
+                    <button class="difficulty-btn" data-difficulty="easy">
+                        <span class="diff-icon">😊</span>
+                        <span class="diff-name">Easy</span>
+                        <span class="diff-desc">Angka 1-20, Penjumlahan & Pengurangan</span>
+                    </button>
+                    <button class="difficulty-btn" data-difficulty="normal">
+                        <span class="diff-icon">😐</span>
+                        <span class="diff-name">Normal</span>
+                        <span class="diff-desc">Angka 1-50, Semua Operasi Dasar</span>
+                    </button>
+                    <button class="difficulty-btn" data-difficulty="hard">
+                        <span class="diff-icon">😤</span>
+                        <span class="diff-name">Hard</span>
+                        <span class="diff-desc">Angka 1-100, Operasi Kompleks</span>
+                    </button>
+                    <button class="difficulty-btn" data-difficulty="timeattack">
+                        <span class="diff-icon">⏱️</span>
+                        <span class="diff-name">Time Attack</span>
+                        <span class="diff-desc">60 Detik, Skor Maksimal!</span>
+                    </button>
+                </div>
+
+                <div class="answer-type-section">
+                    <h3>Tipe Jawaban</h3>
+                    <div class="answer-type-grid">
+                        <button class="answer-type-btn active" data-type="multiple">
+                            <span>📝 Pilihan Ganda</span>
+                        </button>
+                        <button class="answer-type-btn" data-type="essay">
+                            <span>✍️ Essay</span>
+                        </button>
+                        <button class="answer-type-btn" data-type="random">
+                            <span>🎲 Random Mix</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Selection -->
+        <div id="educationMenu" class="screen">
+            <div class="game-card">
+                <button class="back-btn" data-back="main">← Kembali</button>
+                <h2>Pilih Jenjang Pendidikan</h2>
+                
+                <div class="education-grid">
+                    <button class="education-btn" data-level="tk">
+                        <span class="edu-icon">👶</span>
+                        <span class="edu-name">TK</span>
+                        <span class="edu-desc">Penjumlahan 1-10</span>
+                    </button>
+                    <button class="education-btn" data-level="sd">
+                        <span class="edu-icon">📚</span>
+                        <span class="edu-name">SD</span>
+                        <span class="edu-desc">Operasi Dasar</span>
+                    </button>
+                    <button class="education-btn" data-level="smp">
+                        <span class="edu-icon">🎒</span>
+                        <span class="edu-name">SMP</span>
+                        <span class="edu-desc">Aljabar & Pecahan</span>
+                    </button>
+                    <button class="education-btn" data-level="sma">
+                        <span class="edu-icon">🎓</span>
+                        <span class="edu-name">SMA</span>
+                        <span class="edu-desc">Trigonometri & Akar</span>
+                    </button>
+                    <button class="education-btn" data-level="smk">
+                        <span class="edu-icon">🔧</span>
+                        <span class="edu-name">SMK</span>
+                        <span class="edu-desc">Matematika Terapan</span>
+                    </button>
+                    <button class="education-btn" data-level="d3">
+                        <span class="edu-icon">📊</span>
+                        <span class="edu-name">D3</span>
+                        <span class="edu-desc">Statistika Dasar</span>
+                    </button>
+                    <button class="education-btn" data-level="s1">
+                        <span class="edu-icon">🎯</span>
+                        <span class="edu-name">S1</span>
+                        <span class="edu-desc">Kalkulus & Matriks</span>
+                    </button>
+                    <button class="education-btn" data-level="s2">
+                        <span class="edu-icon">🧪</span>
+                        <span class="edu-name">S2</span>
+                        <span class="edu-desc">Integral & Turunan</span>
+                    </button>
+                    <button class="education-btn" data-level="s3">
+                        <span class="edu-icon">🔬</span>
+                        <span class="edu-name">S3</span>
+                        <span class="edu-desc">Soal Kompleks</span>
+                    </button>
+                </div>
+
+                <div class="answer-type-section">
+                    <h3>Tipe Jawaban</h3>
+                    <div class="answer-type-grid">
+                        <button class="answer-type-btn active" data-type="multiple">
+                            <span>📝 Pilihan Ganda</span>
+                        </button>
+                        <button class="answer-type-btn" data-type="essay">
+                            <span>✍️ Essay</span>
+                        </button>
+                        <button class="answer-type-btn" data-type="random">
+                            <span>🎲 Random Mix</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+            <div class="game-hud">
+                <div class="hud-left">
+                    <div class="stat-item">
+                        <span class="stat-label">Level</span>
+                        <span class="stat-value" id="levelDisplay">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Score</span>
+                        <span class="stat-value" id="scoreDisplay">0</span>
+                    </div>
+                    <div class="stat-item" id="comboDisplay">
+                        <span class="stat-label">Combo</span>
+                        <span class="stat-value" id="comboValue">0</span>
+                    </div>
+                </div>
+                <div class="hud-right">
+                    <div class="lives-container" id="livesDisplay"></div>
+                    <button class="pause-btn" id="pauseBtn">⏸️</button>
+                </div>
+            </div>
+
+            <div class="timer-container">
+                <div class="timer-bar" id="timerBar"></div>
+                <div class="timer-text" id="timerText"></div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-card">
+                    <div class="question-text" id="questionText"></div>
+                    
+                    <!-- Multiple Choice Options -->
+                    <div class="options-container" id="optionsContainer"></div>
+                    
+                    <!-- Essay Input -->
+                    <div class="essay-container" id="essayContainer" style="display: none;">
+                        <input type="text" id="essayInput" class="essay-input" placeholder="Ketik jawaban di sini..." autocomplete="off">
+                        <button class="submit-btn" id="submitEssay">Submit Jawaban</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="combo-animation" id="comboAnimation"></div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen" class="screen">
+            <div class="game-card game-over-card">
+                <h2 class="game-over-title">Game Over!</h2>
+                
+                <div class="final-stats">
+                    <div class="stat-row">
+                        <span class="stat-name">Final Score:</span>
+                        <span class="stat-number" id="finalScore">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-name">Level Reached:</span>
+                        <span class="stat-number" id="finalLevel">1</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-name">Max Combo:</span>
+                        <span class="stat-number" id="finalCombo">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-name">Correct Answers:</span>
+                        <span class="stat-number" id="finalCorrect">0</span>
+                    </div>
+                </div>
+
+                <div class="game-over-actions">
+                    <button class="action-btn primary" id="restartBtn">🔄 Main Lagi</button>
+                    <button class="action-btn secondary" id="mainMenuBtn">🏠 Menu Utama</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+                  </html>
+  
